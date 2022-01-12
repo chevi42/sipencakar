@@ -190,7 +190,7 @@
                             </li>
                         <?php } ?>
 
-                        <?php if ($admin['akses'] == "Administrator" || $admin['akses'] == "Pelamar") { ?>
+                        <?php if ($admin['akses'] == "Pelamar"  ) { ?>
                             <?php //if ($hasil_test == 0) { ?>
                                 <li class="nav-item <?php if ($position == 'psikotest') { ?> active <?php } ?>">
                                     <a href="<?= base_url('psikotest') ?>">

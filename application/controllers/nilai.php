@@ -18,9 +18,10 @@ class nilai extends CI_Controller
     {
         $data['admin'] = $this->nilai_model->admin_Active();
         $admin = $data['admin']['id_admin'];
-        $data['title'] = 'Penilaian Kinerja Karyawan - Nilai';
+        $data['title'] = 'Sipencakar - Nilai';
         $data['position'] = 'Nilai';
-        $data['pelamar'] = $this->nilai_model->get_AllPelamar();
+        $data['pelamar'] = $this->pelamar_model->get_AllPelamar();
+        $data['nilai'] = $this->nilai_model->get_AllNilai();
 
         $this->load->view('template/header', $data);
         $this->load->view('nilai/index', $data);
@@ -185,6 +186,26 @@ class nilai extends CI_Controller
     }
 
     public function ubah($id)
+    {
+        $data['admin'] = $this->pelamar_model->admin_Active();
+        $data['title'] = 'SIPENCAKAR - Pelamar';
+        $data['position'] = 'Status Penerimaan';
+        $data['pelamar'] = $this->pelamar_model->get_ById($id);
+        $data['nilai'] = $this->nilai_model->get_AllNilai();
+
+        $this->form_validation->set_rules('status', 'status', 'required|trim');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('template/header', $data);
+            $this->load->view('nilai/ubah', $data);
+            $this->load->view('template/footer');
+        } else {
+            $this->nilai_model->ubah($id);
+            $this->session->set_flashdata('done', 'Data berhasil diubah');
+            redirect('nilai');
+        }
+    }
+
+    public function ubah1($id)
     {
         $data['admin'] = $this->nilai_model->admin_Active();
         $data['title'] = 'Penilaian Kinerja Karyawan - Nilai';

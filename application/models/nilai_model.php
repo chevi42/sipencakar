@@ -20,6 +20,12 @@ class nilai_Model extends CI_Model
         return $this->db->query($query)->result_array();
     }
 
+    public function get_AllNilai()
+    {
+        $query = "SELECT * FROM nilai join pelamar on nilai.id_pelamar = pelamar.id_pelamar";
+        return $this->db->query($query)->result_array();
+    }
+
     public function get_AllKriteria()
     {
         return $this->db->get('kriteria')->result_array();
@@ -40,6 +46,13 @@ class nilai_Model extends CI_Model
     function insertnilai($data){
         $this->db->insert("nilai", $data);
         return true;
+    }
+
+    public function ubah($id)
+    {
+        $this->db->set('status', $this->input->post('status'));
+        $this->db->where('id_pelamar', $id);
+        $this->db->update('pelamar');
     }
 
     public function Edit($id, $tahun)
@@ -99,13 +112,6 @@ class nilai_Model extends CI_Model
             'nilai' => $konversi
         ];
         $this->db->insert('penilaian', $data);
-    }
-
-    public function get_AllNilai($id, $tahun)
-    {
-        $query = "SELECT `id_penilaian`, p.id_nilai, n.id_pelamar, p.nilai, p.normalisasi, p.terbobot FROM `nilai` n join 
-        `penilaian` p on n.id_nilai = p.id_nilai WHERE n.id_pelamar = ? AND n.id_periode = ? ORDER BY id_penilaian";
-        return $this->db->query($query, array($id, $tahun))->result_array();
     }
 
     public function get_Nilai($id_n)

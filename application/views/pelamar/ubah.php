@@ -76,10 +76,6 @@
                             <label>Nilai TOEFL</label>
                             <input type="text" class="form-control" name="toefl" placeholder="Nilai TOEFL" value="<?= $pelamar['toefl'] ?>">
                         </div>
-                        <div class="form-group" hidden>
-                            <label>Psikotes</label>
-                            <input type="text" class="form-control" name="psikotes" placeholder="Nilai Psikotes" value="<?= $pelamar['psikotes'] ?>">
-                        </div>
                         <div class="form-group">
                             <label>Pengalaman Kerja (Bulan)</label>
                             <input type="text" class="form-control" name="pengalaman" placeholder="Pengalaman Kerja" value="<?= $pelamar['pengalaman'] ?>">

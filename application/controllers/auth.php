@@ -8,6 +8,7 @@ class auth extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('auth_model');
+		$this->load->model('pelamar_model');
 	}
 
 	public function index()
@@ -50,6 +51,7 @@ class auth extends CI_Controller
 
 	public function register()
 	{
+		$data['lowongan'] = $this->pelamar_model->get_lowongan();
 		if ($this->session->userdata('email')) {
 			redirect('admin');
 		}
@@ -68,6 +70,7 @@ class auth extends CI_Controller
 			$this->load->view('auth/register', $data);
 		} else {
 			$this->auth_model->insert_Admin();
+			$this->auth_model->insert_pelamar();
 			$this->session->set_flashdata('done', 'Success Create Account');
 			redirect('auth');
 		}

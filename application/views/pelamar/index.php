@@ -121,9 +121,9 @@
                                     <th>Alamat</th>
                                     <th>No.HP</th>
                                     <!-- <th>Email</th> -->
-                                    <th>Nilai IPK|</th>
-                                    <th>Nilai Psikotes</th>
+                                    <th>Nilai IPK</th>
                                     <th>Nilai TOEFL</th>
+                                    <th>Nilai PSIKOTEST</th>
                                     <th>Pengalaman (bulan)</th>
                                     <th>Umur</th>
                                     <th>Aksi</th>
@@ -144,7 +144,7 @@
                                         <td><?= $g['no_hp'] ?></td>
                                         <td><?= $g['ipk'] ?></td>
                                         <td><?= $g['toefl'] ?></td>
-                                        <td><?php if($g['psikotes'] == 0){?> Belum Test <?php } else { echo $g['psikotes'];} ?></td>
+                                        <td><?php if($g['nilai_akumulasi'] == 0){?> Belum Test <?php } else { echo $g['nilai_akumulasi'];} ?></td>
                                         <td><?= $g['pengalaman'] ?></td>
                                         <td><?= $g['umur'] ?></td>                                        
                                         <td>

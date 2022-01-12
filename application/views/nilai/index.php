@@ -24,7 +24,7 @@
             <?php } else if ($this->session->flashdata('kosong')) { ?>
                 <div class="alert alert-danger alert-dismissable">
                     <h4><?= $this->session->flashdata('kosong'); ?>
-                        <!--<a href="<?= base_url('nilai') ?>">disini</a>-->
+                        <a href="<?= base_url('nilai') ?>">disini</a>
                     </h4>
                 </div>
             <?php } ?>
@@ -32,12 +32,6 @@
                 <div class="card-header">
                     <div class="d-flex align-items-center">
                         <h4 class="card-title"><?= $position ?></h4>
-                        <?php if ($admin['akses'] == "Administrator" || $admin['akses'] == "Mahasiswa") { ?>
-                            <!-- <button class="btn btn-primary btn-round ml-auto" id="btn_add" name="btn_add"> -->
-                                <!-- <i class="fa fa-plus"></i> -->
-                                <!-- Tambah <?= $position ?> -->
-                            <!-- </button> -->
-                        <?php } ?>
                     </div>
                 </div>
                 <div class="card-body">
@@ -49,26 +43,27 @@
                                     <th style="width: 6%">No</th>
                                     <th>NIK</th>
                                     <th>Nama</th>
+                                    <th>Nilai Preferensi</th>
+                                    <th>Status</th>
                                     <th style="width: 10%">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 $no = 1;
-                                foreach ($pelamar as $g) {
+                                foreach ($nilai as $g) {
                                     ?>
                                     <tr>
                                         <td><?= $no ?></td>
                                         <td><?= $g['nik'] ?></td>
                                         <td><?= $g['nama_pelamar'] ?></td>
+                                        <td><?= $g['preferensi'] ?></td>
+                                        <td><?= $g['status'] ?></td>
                                         <td>
                                             <div class="form-button-action">
                                                 <?php if ($admin['akses'] == "Administrator") { ?>
                                                 <a href="<?= base_url('nilai/detail/') . $g['id_pelamar'] ?>" class="btn btn-link btn-warning">
                                                     <i class="fas fa-clipboard-list">Detail</i>
-                                                </a>
-                                                <a href="<?= base_url('nilai/hitung/') . $g['id_pelamar'] ?>" class="btn btn-link btn-success" onclick="return confirm('Are you sure want to calculate?')">
-                                                    <i class="fas fa-calculator">Hitung</i>
                                                 </a>
                                                 <?php } ?>
 

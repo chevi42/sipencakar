@@ -54,22 +54,21 @@ class psikotest extends CI_Controller
         $data = array(
             'id_pelamar'=> $this->input->post('id_pelamar',TRUE),
             'id_lowongan'=> $this->input->post('id_lowongan',TRUE),
-            'jawab1'=> $this->input->post('1'),
-            'jawab2'=> $this->input->post('2'),
-            'jawab3'=> $this->input->post('3'),
-            'jawab4'=> $this->input->post('4'),
-            'jawab5'=> $this->input->post('5'),
-            'jawab6'=> $this->input->post('6'),
-            'jawab7'=> $this->input->post('7'),
-            'jawab8'=> $this->input->post('8'),
-            'jawab9'=> $this->input->post('9'),
-            'jawab10'=> $this->input->post('10'),
+            'jawab0'=> $this->input->post('1'),
+            'jawab1'=> $this->input->post('2'),
+            'jawab2'=> $this->input->post('3'),
+            'jawab3'=> $this->input->post('4'),
+            'jawab4'=> $this->input->post('5'),
+            'jawab5'=> $this->input->post('6'),
+            'jawab6'=> $this->input->post('7'),
+            'jawab7'=> $this->input->post('8'),
+            'jawab8'=> $this->input->post('9'),
+            'jawab9'=> $this->input->post('10'),
             'nilai_akumulasi' => $nilai_akumulasi,
             'status' => 'SELESAI',
         );
 
         $insert = $this->psikotest_model->insertData($data);
-        $insert = $this->psikotest_model->psikotest($nilai_akumulasi);
 
         if ($insert) {
 			$this->session->set_flashdata('done', 'Success, Save Psikotest');

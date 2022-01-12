@@ -36,6 +36,11 @@
             <div class="login-form">
                 <form action="<?= base_url('auth/register'); ?>" method="post">
                     <div class="form-group">
+                        <label for="nik" class="placeholder"><b>NIK</b></label>
+                        <input id="nik" name="nik" type="text" class="form-control" value="<?= set_value('nik'); ?>">
+                        <?= form_error('nik', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                    <div class="form-group">
                         <label for="fullname" class="placeholder"><b>Fullname</b></label>
                         <input id="fullname" name="fullname" type="text" class="form-control" value="<?= set_value('fullname'); ?>">
                         <?= form_error('fullname', '<small class="text-danger">', '</small>'); ?>
@@ -64,6 +69,24 @@
                             <?= form_error('passwordsignin', '<small class="text-danger">', '</small>'); ?>
                         </div>
                     </div>
+                    <div class="form-group ">
+                            <label>Lowongan</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="id_lowongan">
+                                <?php
+                                foreach ($lowongan as $m) {
+                                    if ($pelamar['id_lowongan'] != $m['id_lowongan']) {
+                                        ?>
+                                        <option value="<?= $m['id_lowongan'] ?>"><?= $m['lowongan'] ?></option>
+                                    <?php
+                                        } else {
+                                            ?>
+                                        <option value="<?= $m['id_lowongan'] ?>" selected><?= $m['lowongan'] ?></option>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
                     <div class="row form-action">
                         <div class="col-md-6">
                             <a href="<?= base_url('auth') ?>" class="btn btn-danger w-100 fw-bold">Cancel</a>

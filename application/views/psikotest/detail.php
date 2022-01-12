@@ -51,27 +51,26 @@
                             <tbody>
                                 <?php
                                 $no = 1;
-                                foreach ($soal as $p) {
+                                for ($i = 0; $i < count($soal);$i++) {
                                     ?>
                                     <tr>
-                                        <td><?= $no ?></td>
-                                        <td><?= $p['soal'] ?></td>
-                                        <td><?= $p['jawaban'] ?></td>
-                                        <td><?= $p['option1'] ?></td>                                        
-                                        <td><?= $p['option2'] ?></td>
-                                        <td><?= $p['option3'] ?></td>
-                                        <td><?= $p['option4'] ?></td>   
+                                        <td><?php echo $soal[$i]['id_soal'] ?></td>
+                                        <td><?php echo $soal[$i]['soal'] ?></td>
+                                        <td><?php echo $soal[$i]['jawaban'] ?></td>
+                                        <td><?php echo $soal[$i]['option1'] ?></td>                                        
+                                        <td><?php echo $soal[$i]['option2'] ?></td>
+                                        <td><?php echo $soal[$i]['option3'] ?></td>
+                                        <td><?php echo $soal[$i]['option4'] ?></td>   
                                         <?php
-                                    $no = $no + 1;
-                                }
+                                //}
                                 
                                 //for($x = 1; $x <= count($soal); $x++){
                                 ?>  
                                         <td>
-                                            <?php echo $detailtest['jawab1']?>
+                                            <?php echo $detailtest['jawab'.$i]?>
                                         </td>
                                     </tr>
-                                <?php //} ?>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

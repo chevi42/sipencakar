@@ -18,8 +18,13 @@ class auth_Model extends CI_Model
 
     public function insert_pelamar()
     {
-        $data=['nama_pelamar' =>htmlspecialchars($this->input->post('fullname', true)),];
-
+        $data=
+        [
+            'nik' => $this->input->post('nik'),
+            'nama_pelamar' =>htmlspecialchars($this->input->post('fullname', true)),
+            'id_lowongan' => $this->input->post('id_lowongan'),
+    
+        ];
         $this->db->insert('pelamar',$data);
     }
 

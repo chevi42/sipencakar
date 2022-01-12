@@ -19,7 +19,7 @@
                         <i class="flaticon-right-arrow"></i>
                     </li>
                     <li class="nav-item">
-                        <a href="">Ubah <?= $position ?></a>
+                        <a href=""><?= $position ?></a>
                     </li>
                 </ul>
             </div>
@@ -31,235 +31,29 @@
             <div class="card">
                 <div class="card-header">
                     <div class="d-flex align-items-center">
-                        <h4 class="card-title">Ubah <?= $position ?> <?= $karyawan['0']['nama_karyawan'] ?></h4>
+                        <h4 class="card-title"><?= $position ?> <?= $pelamar['nama_pelamar'] ?></h4>
                     </div>
                 </div>
-                <form method="post" action="<?= base_url('nilai/simpan/') . $karyawan['0']['id_karyawan'] ?>">
-                    <div class="card-body col-md-8">
-                        <input type="text" name="idadmin" value="<?= $periode['id_periode'] ?>" hidden>
-
-                        <div class="form-group">
-                            <label for="C1" class="placeholder"><b><?= $kriteria['0']['keterangan'] ?></b></label>
-                            <div class="position-relative">
+                <form method="post" action="">
+                    <div class="card-body col-md-6">
+                        <input id="id_pelamar" name="id_pelamar" type="text" hidden="hidden" value="<?= $pelamar['id_pelamar'] ?>">                        
+                        <div class="form-group ">
+                            <label>Status Penerimaan</label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="status">
                                 <?php
-                                foreach ($nilai as $n) {
-                                    if($n == 1){
-                                        $head = '3' ;
-                                    }else if($n == 2){
-                                        $head = '2' ;
-                                    }else if($n == 3){
-                                        $head = '1' ;
-                                    }else if ($n == 4){
-                                        $head = '0';
-                                    }
-
+                                if ($pelamar['status'] != 'DITERIMA') {
                                     ?>
-                                    <label class="form-radio-label">
-                                        <input class="form-radio-input" type="radio" name="C1" value="<?= $n ?>" <?php if ($karyawan['0']['nilai_karyawan'] == $n) { ?> checked="" <?php } ?>>
-                                        <span class="form-radio-sign"><?= $alternatif[$head]['nama_alternatif'] ?></span>
-                                    </label>
-                                <?php } ?>
-                            </div>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="C2" class="placeholder"><b><?= $kriteria['1']['keterangan'] ?></b></label>
-                            <div class="position-relative">
+                                    <option value="DITERIMA" selected>DITERIMA</option>
+                                    <option value="DITOLAK">DITOLAK</option>
                                 <?php
-                                foreach ($nilai as $n) {
-                                    if($n == 1){
-                                        $head = '3' ;
-                                    }else if($n == 2){
-                                        $head = '2' ;
-                                    }else if($n == 3){
-                                        $head = '1' ;
-                                    }else if ($n == 4){
-                                        $head = '0';
-                                    }
-
+                                } else {
                                     ?>
-                                    <label class="form-radio-label">
-                                        <input class="form-radio-input" type="radio" name="C2" value="<?= $n ?>" <?php if ($karyawan['1']['nilai_karyawan'] == $n) { ?> checked="" <?php } ?>>
-                                        <span class="form-radio-sign"><?= $alternatif[$head]['nama_alternatif'] ?></span>
-                                    </label>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="C3" class="placeholder"><b><?= $kriteria['2']['keterangan'] ?></b></label>
-                            <div class="position-relative">
+                                    <option value="DITERIMA">DITERIMA</option>
+                                    <option value="DITOLAK" selected>DITOLAK</option>
                                 <?php
-                                foreach ($nilai as $n) {
-                                     if($n == 1){
-                                        $head = '3' ;
-                                    }else if($n == 2){
-                                        $head = '2' ;
-                                    }else if($n == 3){
-                                        $head = '1' ;
-                                    }else if ($n == 4){
-                                        $head = '0';
-                                    }
-                                    ?>
-                                    <label class="form-radio-label">
-                                        <input class="form-radio-input" type="radio" name="C3" value="<?= $n ?>" <?php if ($karyawan['2']['nilai_karyawan'] == $n) { ?> checked="" <?php } ?>>
-                                        <span class="form-radio-sign"><?= $alternatif[$head]['nama_alternatif'] ?></span>
-                                    </label>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="C4" class="placeholder"><b><?= $kriteria['3']['keterangan'] ?></b></label>
-                            <div class="position-relative">
-                                <?php
-                                foreach ($nilai as $n) {
-                                     if($n == 1){
-                                        $head = '3' ;
-                                    }else if($n == 2){
-                                        $head = '2' ;
-                                    }else if($n == 3){
-                                        $head = '1' ;
-                                    }else if ($n == 4){
-                                        $head = '0';
-                                    }
-                                    ?>
-                                    <label class="form-radio-label">
-                                        <input class="form-radio-input" type="radio" name="C4" value="<?= $n ?>" <?php if ($karyawan['3']['nilai_karyawan'] == $n) { ?> checked="" <?php } ?>>
-                                        <span class="form-radio-sign"><?= $alternatif[$head]['nama_alternatif'] ?></span>
-                                    </label>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="C5" class="placeholder"><b><?= $kriteria['4']['keterangan'] ?></b></label>
-                            <div class="position-relative">
-                                <?php
-                                foreach ($nilai as $n) {
-                                     if($n == 1){
-                                        $head = '3' ;
-                                    }else if($n == 2){
-                                        $head = '2' ;
-                                    }else if($n == 3){
-                                        $head = '1' ;
-                                    }else if ($n == 4){
-                                        $head = '0';
-                                    }
-                                    ?>
-                                    <label class="form-radio-label">
-                                        <input class="form-radio-input" type="radio" name="C5" value="<?= $n ?>" <?php if ($karyawan['4']['nilai_karyawan'] == $n) { ?> checked="" <?php } ?>>
-                                        <span class="form-radio-sign"><?= $alternatif[$head]['nama_alternatif'] ?></span>
-                                    </label>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="C6" class="placeholder"><b><?= $kriteria['5']['keterangan'] ?></b></label>
-                            <div class="position-relative">
-                                <?php
-                                foreach ($nilai as $n) {
-                                     if($n == 1){
-                                        $head = '3' ;
-                                    }else if($n == 2){
-                                        $head = '2' ;
-                                    }else if($n == 3){
-                                        $head = '1' ;
-                                    }else if ($n == 4){
-                                        $head = '0';
-                                    }
-                                    ?>
-                                    <label class="form-radio-label">
-                                        <input class="form-radio-input" type="radio" name="C6" value="<?= $n ?>" <?php if ($karyawan['5']['nilai_karyawan'] == $n) { ?> checked="" <?php } ?>>
-                                        <span class="form-radio-sign"><?= $alternatif[$head]['nama_alternatif'] ?></span>
-                                    </label>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="C7" class="placeholder"><b><?= $kriteria['6']['keterangan'] ?></b></label>
-                            <div class="position-relative">
-                                <?php
-                                foreach ($nilai as $n) {
-                                     if($n == 1){
-                                        $head = '3' ;
-                                    }else if($n == 2){
-                                        $head = '2' ;
-                                    }else if($n == 3){
-                                        $head = '1' ;
-                                    }else if ($n == 4){
-                                        $head = '0';
-                                    }
-                                    ?>
-                                    <label class="form-radio-label">
-                                        <input class="form-radio-input" type="radio" name="C7" value="<?= $n ?>" <?php if ($karyawan['6']['nilai_karyawan'] == $n) { ?> checked="" <?php } ?>>
-                                        <span class="form-radio-sign"><?= $alternatif[$head]['nama_alternatif'] ?></span>
-                                    </label>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="C8" class="placeholder"><b><?= $kriteria['7']['keterangan'] ?></b></label>
-                            <div class="position-relative">
-                                <?php
-                                foreach ($nilai as $n) {
-                                     if($n == 1){
-                                        $head = '3' ;
-                                    }else if($n == 2){
-                                        $head = '2' ;
-                                    }else if($n == 3){
-                                        $head = '1' ;
-                                    }else if ($n == 4){
-                                        $head = '0';
-                                    }
-                                    ?>
-                                    <label class="form-radio-label">
-                                        <input class="form-radio-input" type="radio" name="C8" value="<?= $n ?>" <?php if ($karyawan['7']['nilai_karyawan'] == $n) { ?> checked="" <?php } ?>>
-                                        <span class="form-radio-sign"><?= $alternatif[$head]['nama_alternatif'] ?></span>
-                                    </label>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="C9" class="placeholder"><b><?= $kriteria['8']['keterangan'] ?></b></label>
-                            <div class="position-relative">
-                                <?php
-                                foreach ($nilai as $n) {
-                                     if($n == 1){
-                                        $head = '3' ;
-                                    }else if($n == 2){
-                                        $head = '2' ;
-                                    }else if($n == 3){
-                                        $head = '1' ;
-                                    }else if ($n == 4){
-                                        $head = '0';
-                                    }
-                                    ?>
-                                    <label class="form-radio-label">
-                                        <input class="form-radio-input" type="radio" name="C9" value="<?= $n ?>" <?php if ($karyawan['8']['nilai_karyawan'] == $n) { ?> checked="" <?php } ?>>
-                                        <span class="form-radio-sign"><?= $alternatif[$head]['nama_alternatif'] ?></span>
-                                    </label>
-                                <?php } ?>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="C10" class="placeholder"><b><?= $kriteria['9']['keterangan'] ?></b></label>
-                            <div class="position-relative">
-                                <?php
-                                foreach ($nilai as $n) {
-                                     if($n == 1){
-                                        $head = '3' ;
-                                    }else if($n == 2){
-                                        $head = '2' ;
-                                    }else if($n == 3){
-                                        $head = '1' ;
-                                    }else if ($n == 4){
-                                        $head = '0';
-                                    }
-                                    ?>
-                                    <label class="form-radio-label">
-                                        <input class="form-radio-input" type="radio" name="C10" value="<?= $n ?>" <?php if ($karyawan['9']['nilai_karyawan'] == $n) { ?> checked="" <?php } ?>>
-                                        <span class="form-radio-sign"><?= $alternatif[$head]['nama_alternatif'] ?></span>
-                                    </label>
-                                <?php } ?>
-                            </div>
+                                }
+                                ?>
+                            </select>
                         </div>
                     </div>
                     <div class="card-action">

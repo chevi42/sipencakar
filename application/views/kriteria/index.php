@@ -34,6 +34,7 @@
                             <thead>
                                 <tr>
                                     <th style="width: 6%">No</th>
+                                    <th>Kode</th>
                                     <th>Nama</th>
                                     <th>Bobot</th>
                                     <th>Keterangan</th>
@@ -47,7 +48,8 @@
                                     ?>
                                 <tr>
                                     <td><?= $no ?></td>
-                                    <td><?= $k['id_kriteria'] ?></td>                                    
+                                    <td><?= $k['id_kriteria'] ?></td> 
+                                    <td><?= $k['nama_kriteria'] ?></td>                                   
                                     <td><?= $k['bobot'] ?></td>
                                     <td><?= $k['keterangan'] ?></td>
                                     <td>

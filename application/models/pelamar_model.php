@@ -11,8 +11,8 @@ class pelamar_Model extends CI_Model
     public function get_AllPelamar()
     {
         $query = "SELECT * FROM `pelamar` g 
-        join `lowongan` m on g.id_lowongan = m.id_lowongan join `hasil_psikotest` h on g.id_pelamar = h.id_pelamar
-        ORDER BY g.id_pelamar";
+        join `lowongan` m on g.id_lowongan = m.id_lowongan join `hasil_psikotest` h on g.id_pelamar = h.id_pelamar join `nilai` n on g.id_pelamar = n.id_pelamar
+        ORDER BY g.id_pelamar ";
         return $this->db->query($query)->result_array();
     }
 

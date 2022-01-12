@@ -148,88 +148,11 @@
 								<div class="card">
 									<div class="card-header">
 										<div class="card-head-row">
-											<div class="card-title">Selamat Datang Silahkan Lengkapi Data Diri Anda</div> 
+											<div class="card-title">Selamat Datang</div> 
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-2">
-								<div class="card">
-									<div class="card-header">
-										<div class="card-head-row">
-											<?php if ($pelamar['status'] == "") {?>
-										<a data-toggle="collapse" href="#collapseprofil" role="button" aria-expanded="false" class="btn btn-info btn-block">Ubah Data</a>
-										<?php }?>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col">
-								<div class="collapse" id="collapseprofil">
-									<div class="card">
-										<form method="post" action="">
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="form-group form-group-default">
-                                                    <label>Nama</label>
-                                                    <input id="nama" name="nama" type="text" class="form-control" placeholder="Nama Pelamar">
-                                                </div>
-                                                <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
-                                                <div class="form-group form-group-default">
-                                                    <label>NIK</label>
-                                                    <input id="nik" name="nik" type="text" class="form-control" placeholder="NIK">
-                                                </div>
-                                                <?= form_error('nik', '<small class="text-danger">', '</small>'); ?>
-                                                <div class="form-group form-group-default">
-                                                    <label>Jenis Kelamin</label>
-                                                    <select class="form-control" id="exampleFormControlSelect1" name="jenis_kelamin">
-                                                        <option value="L">Laki-Laki</option>
-                                                        <option value="P">Perempuan</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group form-group-default">
-                                                    <label>Alamat</label>
-                                                    <input id="alamat" name="alamat" type="text" class="form-control" placeholder="alamat">
-                                                </div>
-                                                 <div class="form-group form-group-default">
-                                                    <label>No.HP</label>
-                                                    <input id="no_hp" name="no_hp" type="text" class="form-control" placeholder="no_hp">
-                                                </div>
-                                                 <div class="form-group form-group-default">
-                                                    <label>Email</label>
-                                                    <input id="email" name="email" type="text" class="form-control" placeholder="email">
-                                                </div>
-                                                <div class="form-group form-group-default">
-                                                    <label>Nilai IPK</label>
-                                                    <input id="ipk" name="ipk" type="text" class="form-control" placeholder="Nilai IPK">
-                                                </div>
-                                                 <div class="form-group form-group-default">
-                                                    <label>Nilai TOEFL</label>
-                                                    <input id="toefl" name="toefl" type="text" class="form-control" placeholder="Nilai TOEFL">
-                                                </div>
-                                                 <div class="form-group form-group-default">
-                                                    <label>Pengalaman Kerja (Bulan)</label>
-                                                    <input id="pengalaman" name="pengalaman" type="text" class="form-control" placeholder="Pengalaman Kerja (Dalam Bulan)">
-                                                </div>
-                                                <div class="form-group form-group-default">
-                                                    <label>Umur</label>
-                                                    <input id="umur" name="umur" type="text" class="form-control" placeholder="Umur">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer no-bd">
-                                        <button type="submit" id="addRowButton" class="btn btn-primary">Tambah</button>
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tutup</button>
-                                    </div>
-                                </form>
-									</div>
-								</div>
-							</div>
-
 						</div>
 					<?php } ?>
 					
